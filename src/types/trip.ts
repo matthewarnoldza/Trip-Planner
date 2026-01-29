@@ -20,7 +20,7 @@ export interface Stop {
   slug: string;
   name: string;
   accommodation: string;
-  accommodationType: "travel" | "bnb" | "campsite";
+  accommodationType: "travel" | "bnb" | "campsite" | "activity";
   coordinates: Coordinates;
   dates: string;
   nights: number;

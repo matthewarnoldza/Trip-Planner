@@ -17,11 +17,13 @@ function AccommodationBadge({ type }: { type: Stop["accommodationType"] }) {
     bnb: "bg-karoo-100 text-karoo-700",
     campsite: "bg-sage-100 text-sage-700",
     travel: "bg-sand-200 text-sand-600",
+    activity: "bg-amber-100 text-amber-700",
   };
   const labels = {
     bnb: "B&B / Lodge",
     campsite: "Campsite",
     travel: "Travel Day",
+    activity: "Activity",
   };
 
   return (
@@ -79,7 +81,9 @@ export default function TimelineSection({ trip }: TimelineSectionProps) {
                     className={`w-4 h-4 rounded-full border-[3px] ${
                       stop.accommodationType === "travel"
                         ? "border-sand-400 bg-sand-100"
-                        : "border-karoo-500 bg-white"
+                        : stop.accommodationType === "activity"
+                          ? "border-amber-500 bg-white"
+                          : "border-karoo-500 bg-white"
                     }`}
                   />
                 </div>
@@ -108,7 +112,9 @@ export default function TimelineSection({ trip }: TimelineSectionProps) {
                     className={`rounded-xl transition-all overflow-hidden ${
                       stop.accommodationType === "travel"
                         ? "bg-sand-100"
-                        : "bg-white shadow-md hover:shadow-lg ring-1 ring-sand-100"
+                        : stop.accommodationType === "activity"
+                          ? "bg-amber-50 shadow-md hover:shadow-lg ring-1 ring-amber-100"
+                          : "bg-white shadow-md hover:shadow-lg ring-1 ring-sand-100"
                     }`}
                   >
                     {/* Thumbnail image for non-travel stops */}

@@ -111,12 +111,16 @@ function StopCard({ stop, index }: { stop: Stop; index: number }) {
                   className={`px-2.5 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
                     stop.accommodationType === "campsite"
                       ? "bg-sage-600/80 text-white"
-                      : "bg-karoo-600/80 text-white"
+                      : stop.accommodationType === "activity"
+                        ? "bg-amber-600/80 text-white"
+                        : "bg-karoo-600/80 text-white"
                   }`}
                 >
                   {stop.accommodationType === "campsite"
                     ? "Campsite"
-                    : "Lodge / B&B"}
+                    : stop.accommodationType === "activity"
+                      ? "Activity"
+                      : "Lodge / B&B"}
                 </span>
               </div>
 
@@ -154,8 +158,13 @@ function StopCard({ stop, index }: { stop: Stop; index: number }) {
                   {stop.name}
                 </h3>
                 <p className="text-white/70 text-sm mt-1">
-                  {stop.dates} &middot; {stop.nights}{" "}
-                  {stop.nights === 1 ? "night" : "nights"}
+                  {stop.dates}
+                  {stop.nights > 0 && (
+                    <>
+                      {" "}&middot; {stop.nights}{" "}
+                      {stop.nights === 1 ? "night" : "nights"}
+                    </>
+                  )}
                 </p>
               </div>
             </motion.div>

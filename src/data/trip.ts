@@ -11,7 +11,7 @@ export const TRIP_DATA: TripData = {
   endDate: "18 April",
   totalDistanceKm: 2850,
   totalDays: 13,
-  totalStops: 8,
+  totalStops: 10,
   stops: [
     {
       id: 0,
@@ -202,6 +202,43 @@ export const TRIP_DATA: TripData = {
     },
     {
       id: 4,
+      slug: "swartberg-pass",
+      name: "Swartberg Pass",
+      accommodation: "Scenic Drive",
+      accommodationType: "activity",
+      coordinates: { lat: -33.3556, lng: 22.0578 },
+      dates: "Sat 11 April",
+      nights: 0,
+      description:
+        "One of South Africa's most spectacular mountain passes and a UNESCO World Heritage Site. Built by master road builder Thomas Bain between 1881 and 1888 using convict labour, this unpaved pass climbs to 1,583m through dramatic switchbacks and towering cliff faces. The drive from Karoo National Park to Oudtshoorn crosses this engineering marvel with jaw-dropping views of the Great and Klein Karoo on either side.",
+      landscapeDescription:
+        "Sheer cliff faces of folded Cape sandstone, deep ravines, and breathtaking panoramas. At the summit, the landscape shifts from the arid Great Karoo to the fertile Klein Karoo valley below. Ancient geological folds are visible in the exposed rock formations.",
+      activities: [
+        {
+          name: "Summit Viewpoint",
+          description:
+            "Stop at the top of the pass for panoramic views across both the Great Karoo and Klein Karoo valleys",
+          icon: "mountain",
+        },
+        {
+          name: "Die Hel (Gamkaskloof)",
+          description:
+            "Optional detour to the remote valley accessible only via a dramatic mountain road",
+          icon: "car",
+        },
+      ],
+      features: [],
+      bookingSource: "",
+      imageUrl: "/images/activities/swartberg-pass.jpg",
+      driveFromPrevious: {
+        distanceKm: 200,
+        durationHours: 3,
+        description:
+          "South from Beaufort West via N12, then onto the Swartberg Pass road",
+      },
+    },
+    {
+      id: 5,
       slug: "oudtshoorn",
       name: "Oudtshoorn",
       accommodation: "Karoo Lavender",
@@ -215,22 +252,10 @@ export const TRIP_DATA: TripData = {
         "The Klein Karoo is a semi-arid valley flanked by the Swartberg range to the north and the Outeniqua mountains to the south. Oudtshoorn sits in a fertile valley of lucerne fields, ostrich paddocks, and lavender farms. The Swartberg mountains provide a dramatic, jagged backdrop.",
       activities: [
         {
-          name: "Cango Caves",
-          description:
-            "Subterranean wonder with dripstone caverns millions of years old — standard tour (1hr) and adventure tour with crawling through tight passages",
-          icon: "cave",
-        },
-        {
           name: "Ostrich Farms",
           description:
             "Oudtshoorn is the ostrich capital of the world — guided tours, ostrich riding, and unique cuisine",
           icon: "feather",
-        },
-        {
-          name: "Swartberg Pass",
-          description:
-            "UNESCO World Heritage Site mountain pass with stunning views connecting to Prince Albert",
-          icon: "mountain",
         },
         {
           name: "Meerkat Encounters",
@@ -258,14 +283,50 @@ export const TRIP_DATA: TripData = {
         "https://www.booking.com/hotel/za/karoo-lavender.en-gb.html",
       imageUrl: "/images/stops/oudtshoorn.jpg",
       driveFromPrevious: {
-        distanceKm: 350,
-        durationHours: 4.5,
+        distanceKm: 150,
+        durationHours: 1.5,
         description:
-          "South over the Swartberg via the N12 and R407 into the Klein Karoo",
+          "Descending the Swartberg Pass into the Klein Karoo valley",
       },
     },
     {
-      id: 5,
+      id: 6,
+      slug: "cango-caves",
+      name: "Cango Caves",
+      accommodation: "Day Activity",
+      accommodationType: "activity",
+      coordinates: { lat: -33.3939, lng: 22.2147 },
+      dates: "Sun 12 April",
+      nights: 0,
+      description:
+        "One of the world's great natural wonders — a subterranean cavern system stretching deep into the Swartberg foothills. The dripstone formations are among the finest in the world, sculpted over millions of years. Choose the standard Heritage Tour through Van Zyl's Hall (one of the largest cave chambers in the world) or the Adventure Tour, squeezing through Devil's Chimney and the Tunnel of Love.",
+      landscapeDescription:
+        "Hidden beneath the Swartberg foothills, the caves extend over 4km with spectacular stalactites, stalagmites, and flowstone formations in a constant 18°C underground environment.",
+      activities: [
+        {
+          name: "Heritage Tour",
+          description:
+            "1-hour guided walk through the main chambers including Van Zyl's Hall — suitable for all ages",
+          icon: "cave",
+        },
+        {
+          name: "Adventure Tour",
+          description:
+            "Crawl, climb, and squeeze through tight passages including Devil's Chimney — not for the claustrophobic!",
+          icon: "zap",
+        },
+      ],
+      features: [],
+      bookingSource: "",
+      imageUrl: "/images/activities/cango-caves.jpg",
+      driveFromPrevious: {
+        distanceKm: 30,
+        durationHours: 0.5,
+        description: "Short drive north from Oudtshoorn along the R328",
+      },
+    },
+    {
+      id: 7,
       slug: "de-rust",
       name: "De Rust",
       accommodation: "Aards Guest Farm",
@@ -322,7 +383,7 @@ export const TRIP_DATA: TripData = {
       },
     },
     {
-      id: 6,
+      id: 8,
       slug: "baviaanskloof",
       name: "Baviaanskloof",
       accommodation: "Uitspan Campsite",
@@ -380,7 +441,7 @@ export const TRIP_DATA: TripData = {
       },
     },
     {
-      id: 7,
+      id: 9,
       slug: "nieu-bethesda",
       name: "Nieu-Bethesda",
       accommodation: "Oude Waenhuis",
@@ -437,7 +498,7 @@ export const TRIP_DATA: TripData = {
       },
     },
     {
-      id: 8,
+      id: 10,
       slug: "philippolis",
       name: "Philippolis",
       accommodation: "Die Groenhuis",
@@ -493,7 +554,7 @@ export const TRIP_DATA: TripData = {
       },
     },
     {
-      id: 9,
+      id: 11,
       slug: "johannesburg-end",
       name: "Johannesburg",
       accommodation: "Home",
