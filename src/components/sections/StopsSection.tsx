@@ -73,6 +73,9 @@ function StopCard({ stop, index }: { stop: Stop; index: number }) {
     <>
       <motion.div
         id={`stop-${stop.id}`}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
         variants={fadeInUp}
         className="scroll-mt-24"
       >

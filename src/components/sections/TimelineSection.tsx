@@ -68,6 +68,9 @@ export default function TimelineSection({ trip }: TimelineSectionProps) {
             return (
               <motion.div
                 key={stop.id}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
                 variants={variants}
                 className={`relative flex items-start mb-12 last:mb-0 ${
                   index % 2 === 0
