@@ -112,12 +112,18 @@ export default function TimelineSection({ trip }: TimelineSectionProps) {
                   }`}
                 >
                   <div
-                    className={`rounded-xl transition-all overflow-hidden ${
+                    onClick={() => {
+                      const el = document.getElementById(`stop-${stop.id}`);
+                      if (el) {
+                        el.scrollIntoView({ behavior: "smooth", block: "center" });
+                      }
+                    }}
+                    className={`group rounded-xl transition-all overflow-hidden cursor-pointer ${
                       stop.accommodationType === "travel"
-                        ? "bg-sand-100"
+                        ? "bg-sand-100 hover:bg-sand-150"
                         : stop.accommodationType === "activity"
-                          ? "bg-amber-50 shadow-md hover:shadow-lg ring-1 ring-amber-100"
-                          : "bg-white shadow-md hover:shadow-lg ring-1 ring-sand-100"
+                          ? "bg-amber-50 shadow-md hover:shadow-lg ring-1 ring-amber-100 hover:ring-amber-200"
+                          : "bg-white shadow-md hover:shadow-lg ring-1 ring-sand-100 hover:ring-sand-200"
                     }`}
                   >
                     {/* Thumbnail image for non-travel stops */}
@@ -160,7 +166,7 @@ export default function TimelineSection({ trip }: TimelineSectionProps) {
                         </p>
                       )}
 
-                      <p className="text-sm text-sand-500 leading-relaxed line-clamp-3">
+                      <p className="text-sm text-sand-500 leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
                         {stop.description}
                       </p>
 
@@ -192,6 +198,13 @@ export default function TimelineSection({ trip }: TimelineSectionProps) {
                             stop.driveFromPrevious.durationHours
                           )}
                         </div>
+                      )}
+
+                      {/* View details hint */}
+                      {stop.accommodationType !== "travel" && (
+                        <p className="text-xs text-karoo-400 mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                          Click to view full details &darr;
+                        </p>
                       )}
                     </div>
                   </div>
