@@ -1,10 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { TripData, Stop } from "@/types/trip";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { fadeInUp, fadeInLeft, fadeInRight } from "@/lib/animations";
 import { formatDuration } from "@/lib/utils";
+import { stopImages } from "@/data/images";
 
 interface TimelineSectionProps {
   trip: TripData;
@@ -58,6 +60,8 @@ export default function TimelineSection({ trip }: TimelineSectionProps) {
           {trip.stops.map((stop, index) => {
             const isLeft = index % 2 === 0;
             const variants = isLeft ? fadeInLeft : fadeInRight;
+            const images = stopImages[stop.slug];
+            const heroImage = images?.hero;
 
             return (
               <motion.div
@@ -101,60 +105,86 @@ export default function TimelineSection({ trip }: TimelineSectionProps) {
                   }`}
                 >
                   <div
-                    className={`p-5 rounded-xl transition-all ${
+                    className={`rounded-xl transition-all overflow-hidden ${
                       stop.accommodationType === "travel"
                         ? "bg-sand-100"
                         : "bg-white shadow-md hover:shadow-lg ring-1 ring-sand-100"
                     }`}
                   >
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-xs font-semibold text-karoo-500">
-                        {stop.dates}
-                      </span>
-                      <AccommodationBadge type={stop.accommodationType} />
-                    </div>
-
-                    <h3 className="font-serif text-xl font-bold text-sand-800 mb-1">
-                      {stop.name}
-                    </h3>
-
-                    {stop.accommodation !== "Home" && (
-                      <p className="text-sm text-karoo-600 font-medium mb-2">
-                        {stop.accommodation}
-                      </p>
+                    {/* Thumbnail image for non-travel stops */}
+                    {heroImage && stop.accommodationType !== "travel" && (
+                      <div className="relative w-full h-32 sm:h-36">
+                        <Image
+                          src={heroImage}
+                          alt={stop.name}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 640px) calc(100vw - 56px), calc(50vw - 64px)"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                        <div className="absolute bottom-2 left-3 flex items-center gap-1.5">
+                          <span className="w-6 h-6 rounded-full bg-karoo-500 flex items-center justify-center text-white text-[10px] font-bold">
+                            {index + 1}
+                          </span>
+                          <span className="text-white/90 text-xs font-medium">
+                            {stop.name}
+                          </span>
+                        </div>
+                      </div>
                     )}
 
-                    <p className="text-sm text-sand-500 leading-relaxed line-clamp-3">
-                      {stop.description}
-                    </p>
-
-                    {stop.nights > 0 && (
-                      <div className="flex items-center gap-3 mt-3 pt-3 border-t border-sand-100">
-                        <span className="text-xs text-sand-400">
-                          {stop.nights}{" "}
-                          {stop.nights === 1 ? "night" : "nights"}
+                    <div className="p-5">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-xs font-semibold text-karoo-500">
+                          {stop.dates}
                         </span>
-                        {stop.activities.length > 0 && (
-                          <span className="text-xs text-sand-400">
-                            &middot; {stop.activities.length} activities
-                          </span>
-                        )}
-                        {stop.bookingSource && (
-                          <span className="text-xs text-sand-400">
-                            &middot; {stop.bookingSource}
-                          </span>
-                        )}
+                        <AccommodationBadge type={stop.accommodationType} />
                       </div>
-                    )}
 
-                    {/* Mobile drive info */}
-                    {stop.driveFromPrevious.distanceKm > 0 && (
-                      <div className="sm:hidden mt-2 text-xs text-sand-400">
-                        🚗 {stop.driveFromPrevious.distanceKm} km drive
-                        &middot;{" "}
-                        {formatDuration(stop.driveFromPrevious.durationHours)}
-                      </div>
-                    )}
+                      <h3 className="font-serif text-xl font-bold text-sand-800 mb-1">
+                        {stop.name}
+                      </h3>
+
+                      {stop.accommodation !== "Home" && (
+                        <p className="text-sm text-karoo-600 font-medium mb-2">
+                          {stop.accommodation}
+                        </p>
+                      )}
+
+                      <p className="text-sm text-sand-500 leading-relaxed line-clamp-3">
+                        {stop.description}
+                      </p>
+
+                      {stop.nights > 0 && (
+                        <div className="flex items-center gap-3 mt-3 pt-3 border-t border-sand-100">
+                          <span className="text-xs text-sand-400">
+                            {stop.nights}{" "}
+                            {stop.nights === 1 ? "night" : "nights"}
+                          </span>
+                          {stop.activities.length > 0 && (
+                            <span className="text-xs text-sand-400">
+                              &middot; {stop.activities.length} activities
+                            </span>
+                          )}
+                          {stop.bookingSource && (
+                            <span className="text-xs text-sand-400">
+                              &middot; {stop.bookingSource}
+                            </span>
+                          )}
+                        </div>
+                      )}
+
+                      {/* Mobile drive info */}
+                      {stop.driveFromPrevious.distanceKm > 0 && (
+                        <div className="sm:hidden mt-2 text-xs text-sand-400">
+                          🚗 {stop.driveFromPrevious.distanceKm} km drive
+                          &middot;{" "}
+                          {formatDuration(
+                            stop.driveFromPrevious.durationHours
+                          )}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </motion.div>
