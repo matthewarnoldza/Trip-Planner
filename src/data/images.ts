@@ -48,10 +48,6 @@ export const stopImages: Record<string, StopImages> = {
       "/images/stops/Oudtshoorn/716215213.jpg",
     ],
   },
-  "cango-caves": {
-    hero: "/images/activities/cango-caves.jpg",
-    gallery: ["/images/activities/cango-caves.jpg"],
-  },
   "de-rust": {
     hero: "/images/stops/De Rust/HERO_exterior.jpg",
     gallery: [

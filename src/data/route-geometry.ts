@@ -65,7 +65,7 @@ export const routeSegments: [number, number][][] = [
     [-33.55, 22.24],
     [-33.6241, 22.2617],
   ],
-  // Segment 4: Oudtshoorn → Cango Caves → De Rust (~70km east via R328/R62)
+  // Segment 4: Oudtshoorn → De Rust (~40km east via R62)
   [
     [-33.6241, 22.2617],
     [-33.6, 22.3],

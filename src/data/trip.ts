@@ -11,7 +11,7 @@ export const TRIP_DATA: TripData = {
   endDate: "18 April",
   totalDistanceKm: 2850,
   totalDays: 13,
-  totalStops: 9,
+  totalStops: 8,
   stops: [
     {
       id: 0,
@@ -130,6 +130,12 @@ export const TRIP_DATA: TripData = {
             "Explore the Dutch Reformed Church (replica of Salisbury Cathedral), Reinet House Museum and Stretch's Court",
           icon: "building",
         },
+        {
+          name: "Karoo Origins Fossil Centre",
+          description:
+            "Step into a prehistoric adventure at Graaff-Reinet's fossil museum — immersive exhibits showcasing the Karoo's 250-million-year paleontological heritage with real fossil specimens and interactive displays",
+          icon: "search",
+        },
       ],
       features: [
         "Power points",
@@ -222,6 +228,12 @@ export const TRIP_DATA: TripData = {
           icon: "eye",
         },
         {
+          name: "Cango Caves",
+          description:
+            "One of the world's great natural wonders — a subterranean cavern system 30km north of Oudtshoorn. Choose the Heritage Tour through Van Zyl's Hall or the Adventure Tour squeezing through Devil's Chimney",
+          icon: "cave",
+        },
+        {
           name: "Cango Wildlife Ranch",
           description:
             "Cheetah contact centre with lions, white Bengal tigers, meerkats, and pygmy hippos",
@@ -249,42 +261,6 @@ export const TRIP_DATA: TripData = {
     },
     {
       id: 5,
-      slug: "cango-caves",
-      name: "Cango Caves",
-      accommodation: "Day Activity",
-      accommodationType: "activity",
-      coordinates: { lat: -33.3939, lng: 22.2147 },
-      dates: "Sun 12 April",
-      nights: 0,
-      description:
-        "One of the world's great natural wonders — a subterranean cavern system stretching deep into the Swartberg foothills. The dripstone formations are among the finest in the world, sculpted over millions of years. Choose the standard Heritage Tour through Van Zyl's Hall (one of the largest cave chambers in the world) or the Adventure Tour, squeezing through Devil's Chimney and the Tunnel of Love.",
-      landscapeDescription:
-        "Hidden beneath the Swartberg foothills, the caves extend over 4km with spectacular stalactites, stalagmites, and flowstone formations in a constant 18°C underground environment.",
-      activities: [
-        {
-          name: "Heritage Tour",
-          description:
-            "1-hour guided walk through the main chambers including Van Zyl's Hall — suitable for all ages",
-          icon: "cave",
-        },
-        {
-          name: "Adventure Tour",
-          description:
-            "Crawl, climb, and squeeze through tight passages including Devil's Chimney — not for the claustrophobic!",
-          icon: "zap",
-        },
-      ],
-      features: [],
-      bookingSource: "",
-      imageUrl: "/images/activities/cango-caves.jpg",
-      driveFromPrevious: {
-        distanceKm: 30,
-        durationHours: 0.5,
-        description: "Short drive north from Oudtshoorn along the R328",
-      },
-    },
-    {
-      id: 6,
       slug: "de-rust",
       name: "De Rust",
       accommodation: "Aards Guest Farm",
@@ -341,7 +317,7 @@ export const TRIP_DATA: TripData = {
       },
     },
     {
-      id: 7,
+      id: 6,
       slug: "baviaanskloof",
       name: "Baviaanskloof",
       accommodation: "Uitspan Campsite",
@@ -399,7 +375,7 @@ export const TRIP_DATA: TripData = {
       },
     },
     {
-      id: 8,
+      id: 7,
       slug: "nieu-bethesda",
       name: "Nieu-Bethesda",
       accommodation: "Oude Waenhuis",
@@ -456,7 +432,7 @@ export const TRIP_DATA: TripData = {
       },
     },
     {
-      id: 9,
+      id: 8,
       slug: "philippolis",
       name: "Philippolis",
       accommodation: "Die Groenhuis",
@@ -512,7 +488,7 @@ export const TRIP_DATA: TripData = {
       },
     },
     {
-      id: 10,
+      id: 9,
       slug: "johannesburg-end",
       name: "Johannesburg",
       accommodation: "Home",
