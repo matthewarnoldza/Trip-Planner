@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import { TripData } from "@/types/trip";
 
 interface HeroSectionProps {
@@ -15,11 +16,10 @@ export default function HeroSection({ trip }: HeroSectionProps) {
     offset: ["start start", "end start"],
   });
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -150]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -120]);
   const backgroundScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
   const textY = useTransform(scrollYProgress, [0, 0.4], [0, -60]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.4, 0.7]);
 
   return (
     <section
@@ -27,73 +27,31 @@ export default function HeroSection({ trip }: HeroSectionProps) {
       id="hero"
       className="relative h-[100dvh] overflow-hidden"
     >
-      {/* Parallax background */}
+      {/* Parallax photo background */}
       <motion.div
         style={{ y: backgroundY, scale: backgroundScale }}
-        className="absolute inset-0"
+        className="absolute inset-[-10%]"
       >
-        {/* Gradient background simulating a Karoo sunset landscape */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, #1a0a2e 0%, #2d1b4e 15%, #6b2f5b 30%, #c2553d 45%, #e8854a 55%, #f4a956 65%, #d4a574 75%, #8b7355 85%, #5a4a3a 100%)",
-          }}
+        <Image
+          src="/images/neal-markham-ocvXOq-jCgw-unsplash.jpg"
+          alt="Karoo windmill against golden plains"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+          quality={90}
         />
-        {/* Subtle texture overlay */}
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_40%,rgba(255,255,255,0.3),transparent_60%)]" />
-        {/* Stars in the upper sky */}
-        <div className="absolute inset-0">
-          {[...Array(40)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-[2px] h-[2px] bg-white rounded-full"
-              style={{
-                top: `${Math.random() * 30}%`,
-                left: `${Math.random() * 100}%`,
-                opacity: Math.random() * 0.8 + 0.2,
-              }}
-              animate={{
-                opacity: [0.2, 0.8, 0.2],
-              }}
-              transition={{
-                duration: 2 + Math.random() * 3,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
-            />
-          ))}
-        </div>
-        {/* Mountain silhouettes */}
-        <svg
-          className="absolute bottom-0 left-0 right-0 w-full"
-          viewBox="0 0 1440 400"
-          preserveAspectRatio="none"
-          style={{ height: "40%" }}
-        >
-          {/* Far mountains */}
-          <path
-            d="M0,250 Q100,180 200,220 Q350,140 500,200 Q650,120 750,180 Q900,100 1050,170 Q1200,110 1350,190 Q1400,170 1440,200 L1440,400 L0,400 Z"
-            fill="rgba(60,40,30,0.5)"
-          />
-          {/* Near mountains */}
-          <path
-            d="M0,300 Q80,240 180,280 Q300,200 450,270 Q550,220 700,260 Q850,190 1000,250 Q1100,210 1250,270 Q1350,230 1440,260 L1440,400 L0,400 Z"
-            fill="rgba(40,28,20,0.7)"
-          />
-          {/* Foreground */}
-          <path
-            d="M0,350 Q200,310 400,340 Q600,300 800,330 Q1000,310 1200,340 Q1350,320 1440,340 L1440,400 L0,400 Z"
-            fill="rgba(30,20,15,0.9)"
-          />
-        </svg>
       </motion.div>
 
-      {/* Gradient overlays */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60"
-        style={{ opacity: overlayOpacity }}
-      />
+      {/* Cinematic overlay stack */}
+      {/* Top vignette — dark sky fade for text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-transparent" />
+      {/* Bottom vignette — grounds the image and anchors the scroll indicator */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+      {/* Warm Karoo colour wash — subtle tint that ties the photo to the site palette */}
+      <div className="absolute inset-0 bg-gradient-to-br from-karoo-900/25 via-transparent to-karoo-950/20 mix-blend-multiply" />
+      {/* Centre radial highlight — draws the eye to the text */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center_40%,transparent_30%,rgba(0,0,0,0.4)_100%)]" />
 
       {/* Content */}
       <motion.div
@@ -104,9 +62,9 @@ export default function HeroSection({ trip }: HeroSectionProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mb-4"
+          className="mb-5"
         >
-          <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-[0.2em] uppercase bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+          <span className="inline-block px-5 py-2 text-xs font-semibold tracking-[0.2em] uppercase bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
             {trip.month} {trip.year} &middot; {trip.totalDays} Days &middot;{" "}
             {trip.totalStops} Stops
           </span>
@@ -116,7 +74,7 @@ export default function HeroSection({ trip }: HeroSectionProps) {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-[0.95]"
+          className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-[0.95] drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)]"
         >
           {trip.title}
         </motion.h1>
@@ -125,7 +83,7 @@ export default function HeroSection({ trip }: HeroSectionProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-lg sm:text-xl text-white/80 max-w-xl mb-3 leading-relaxed"
+          className="text-lg sm:text-xl text-white/85 max-w-xl mb-3 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]"
         >
           {trip.subtitle}
         </motion.p>
@@ -134,7 +92,7 @@ export default function HeroSection({ trip }: HeroSectionProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="text-sm text-white/50 max-w-md"
+          className="text-sm text-white/60 drop-shadow-[0_1px_4px_rgba(0,0,0,0.4)]"
         >
           {trip.startDate} – {trip.endDate}
         </motion.p>

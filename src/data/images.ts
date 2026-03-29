@@ -27,8 +27,13 @@ export const stopImages: Record<string, StopImages> = {
     ],
   },
   "prince-albert": {
-    hero: "/images/activities/swartberg-pass.jpg",
-    gallery: ["/images/activities/swartberg-pass.jpg"],
+    hero: "/images/stops/Prince Albert/campsite4-hero.jpg",
+    gallery: [
+      "/images/stops/Prince Albert/campsite4-hero.jpg",
+      "/images/stops/Prince Albert/campsite3.jpg",
+      "/images/stops/Prince Albert/campsite5.jpg",
+      "/images/stops/Prince Albert/campsite6.jpg",
+    ],
   },
   oudtshoorn: {
     hero: "/images/stops/Oudtshoorn/HERO_670872986.jpg",
