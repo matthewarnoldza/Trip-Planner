@@ -7,34 +7,12 @@ import { TripData, Stop, Activity } from "@/types/trip";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ImageGallery from "@/components/ui/ImageGallery";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
+import { activityIcons } from "@/lib/activity-icons";
 import { stopImages } from "@/data/images";
 
 interface StopsSectionProps {
   trip: TripData;
 }
-
-const activityIcons: Record<string, string> = {
-  stars: "✨",
-  binoculars: "🔭",
-  hiking: "🥾",
-  water: "🌊",
-  mountain: "⛰️",
-  building: "🏛️",
-  car: "🚙",
-  search: "🔍",
-  moon: "🌙",
-  cave: "🕳️",
-  feather: "🪶",
-  eye: "👀",
-  paw: "🐾",
-  waterfall: "💧",
-  wine: "🍷",
-  shop: "🛍️",
-  zap: "⚡",
-  palette: "🎨",
-  book: "📖",
-  cart: "🛒",
-};
 
 function ActivityItem({ activity }: { activity: Activity }) {
   return (
