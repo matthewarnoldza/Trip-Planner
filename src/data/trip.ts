@@ -6,7 +6,7 @@ export const TRIP_DATA: TripData = {
   tagline:
     "From the vast plains of the Free State through ancient mountain passes, fossil-rich valleys, and timeless Karoo villages — a family adventure through the soul of South Africa.",
   month: "April",
-  year: 2025,
+  year: 2026,
   startDate: "6 April",
   endDate: "18 April",
   totalDistanceKm: 2850,
@@ -43,7 +43,7 @@ export const TRIP_DATA: TripData = {
       accommodationType: "bnb",
       coordinates: { lat: -29.9, lng: 24.7 },
       dates: "Mon 6 – Tue 7 April",
-      nights: 1,
+      nights: 2,
       description:
         "A 100% off-the-grid retreat nestled at the foot of the Joostenberg mountains on a 4,200-hectare working farm. Hosted by third-generation farmers, the lodge offers eco suites powered by solar energy with freshly pumped aquifer water. Rated 9.4 on Booking.com.",
       landscapeDescription:
