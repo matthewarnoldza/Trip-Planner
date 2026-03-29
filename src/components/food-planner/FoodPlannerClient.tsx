@@ -82,6 +82,12 @@ export default function FoodPlannerClient({ trip }: FoodPlannerClientProps) {
     new Set([trip.stops[0]?.slug])
   );
 
+  // Version fingerprint — auto-resets localStorage when itinerary changes
+  const tripVersion = useMemo(
+    () => trip.stops.map((s) => s.slug).join(","),
+    [trip]
+  );
+
   const defaultPlan = useMemo((): FoodPlan => {
     const days: Record<string, DayMeals> = {};
     for (const stop of trip.stops) {
@@ -92,7 +98,8 @@ export default function FoodPlannerClient({ trip }: FoodPlannerClientProps) {
 
   const [plan, setPlan, resetPlan] = useLocalStorage<FoodPlan>(
     "karoo-food-plan",
-    defaultPlan
+    defaultPlan,
+    tripVersion
   );
 
   const toggleDay = (slug: string) => {

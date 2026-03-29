@@ -13,6 +13,12 @@ interface ActivitiesClientProps {
 }
 
 export default function ActivitiesClient({ trip }: ActivitiesClientProps) {
+  // Version fingerprint — auto-resets localStorage when itinerary changes
+  const tripVersion = useMemo(
+    () => trip.stops.map((s) => `${s.slug}:${s.activities.length}`).join(","),
+    [trip]
+  );
+
   const defaultPlan = useMemo((): ActivityPlan => {
     const days: DayPlan[] = trip.stops
       .filter((stop) => stop.accommodationType !== "travel")
@@ -37,7 +43,8 @@ export default function ActivitiesClient({ trip }: ActivitiesClientProps) {
 
   const [plan, setPlan, resetPlan] = useLocalStorage<ActivityPlan>(
     "karoo-activity-plan",
-    defaultPlan
+    defaultPlan,
+    tripVersion
   );
 
   const updateDay = (index: number, day: DayPlan) => {
