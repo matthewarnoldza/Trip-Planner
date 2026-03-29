@@ -26,15 +26,7 @@ export const stopImages: Record<string, StopImages> = {
       "/images/stops/Camdeboo National Park/Nqweba-Camp-Site.jpg",
     ],
   },
-  "karoo-national-park": {
-    hero: "/images/stops/Karoo National Park/HERO_Embizweni-Karoo-National-Park-Neverending-Nature.jpg",
-    gallery: [
-      "/images/stops/Karoo National Park/HERO_Embizweni-Karoo-National-Park-Neverending-Nature.jpg",
-      "/images/stops/Karoo National Park/Embizweni.jpg",
-      "/images/stops/Karoo National Park/Wildlife-Karoo-National-Park-Neverending-Nature.jpg",
-    ],
-  },
-  "swartberg-pass": {
+  "prince-albert": {
     hero: "/images/activities/swartberg-pass.jpg",
     gallery: ["/images/activities/swartberg-pass.jpg"],
   },

@@ -11,7 +11,7 @@ export const TRIP_DATA: TripData = {
   endDate: "18 April",
   totalDistanceKm: 2850,
   totalDays: 13,
-  totalStops: 10,
+  totalStops: 9,
   stops: [
     {
       id: 0,
@@ -147,98 +147,57 @@ export const TRIP_DATA: TripData = {
     },
     {
       id: 3,
-      slug: "karoo-national-park",
-      name: "Karoo National Park",
-      accommodation: "Embizweni Cottage",
+      slug: "prince-albert",
+      name: "Prince Albert",
+      accommodation: "Wolvekraal Guest Farm",
       accommodationType: "bnb",
-      coordinates: { lat: -32.2418, lng: 22.2995 },
+      coordinates: { lat: -33.2276, lng: 22.0297 },
       dates: "Thu 9 – Fri 10 April",
       nights: 2,
       description:
-        "A remote, fully equipped overnight cottage deep within the park, accessible via the 90km Nuweveld 4x4 EcoTrail. Spectacular views of the Nuweveld Mountains with gas-powered amenities and solar lighting. A true wilderness adventure for those seeking solitude.",
+        "Seven retro-chic self-catering cottages perched on a koppie just 5 minutes outside Prince Albert, with 360° views of both the Swartberg mountain range and the Karoo plains. Modern-rustic interiors with private braai areas and plunge pools. One of the most visually dramatic settings in the Karoo — the sunsets and starscapes here are exceptional. Prince Albert itself is arguably the most beautiful small town in the Great Karoo, with Victorian architecture, excellent restaurants, olive groves, and the Swartberg Pass literally 5km from the front door.",
       landscapeDescription:
-        "The Nuweveld mountain range forms a dramatic amphitheatre backdrop to undulating Karoo plains spanning over 88,000 hectares. Flat-topped koppies, steep mountain passes, sparse vegetation, and a vast sky. The park's rich fossil history spans over 250 million years.",
+        "Prince Albert sits at the foot of the Swartberg — one of the oldest mountain ranges in the world and a UNESCO World Heritage Site. The town is a lush green oasis of irrigation channels and tree-lined streets against the surrounding arid Karoo plains. To the south the Swartberg wall rises dramatically; to the north, the Great Karoo plains stretch endlessly under enormous skies.",
       activities: [
         {
-          name: "4x4 Eco Trail",
+          name: "Swartberg Pass Day Drive",
           description:
-            "The Nuweveld 90km trail winds through rugged mountain terrain — the adventure of reaching Embizweni is half the fun",
-          icon: "car",
-        },
-        {
-          name: "Fossil Trail",
-          description:
-            "A 400m trail with real fossil displays from the area's 250-million-year geological history",
-          icon: "search",
-        },
-        {
-          name: "Night Game Drives",
-          description:
-            "Guided drives to spot nocturnal species including aardwolf and bat-eared fox",
-          icon: "moon",
-        },
-        {
-          name: "Wildlife Viewing",
-          description:
-            "Black rhino, lions, Cape mountain zebra, gemsbok, and the highest number of tortoise species of any park in the world",
-          icon: "binoculars",
-        },
-      ],
-      features: [
-        "Fully equipped for 6",
-        "Gas stove & fridge",
-        "Solar lighting",
-        "Remote & secluded",
-        "4x4 required",
-      ],
-      bookingSource: "SANParks",
-      bookingUrl: "https://karoonationalpark.co.za/",
-      imageUrl: "/images/stops/karoo-np.jpg",
-      driveFromPrevious: {
-        distanceKm: 260,
-        durationHours: 3,
-        description: "West via N12 through Graaff-Reinet to Beaufort West",
-      },
-    },
-    {
-      id: 4,
-      slug: "swartberg-pass",
-      name: "Swartberg Pass",
-      accommodation: "Scenic Drive",
-      accommodationType: "activity",
-      coordinates: { lat: -33.3556, lng: 22.0578 },
-      dates: "Sat 11 April",
-      nights: 0,
-      description:
-        "One of South Africa's most spectacular mountain passes and a UNESCO World Heritage Site. Built by master road builder Thomas Bain between 1881 and 1888 using convict labour, this unpaved pass climbs to 1,583m through dramatic switchbacks and towering cliff faces. The drive from Karoo National Park to Oudtshoorn crosses this engineering marvel with jaw-dropping views of the Great and Klein Karoo on either side.",
-      landscapeDescription:
-        "Sheer cliff faces of folded Cape sandstone, deep ravines, and breathtaking panoramas. At the summit, the landscape shifts from the arid Great Karoo to the fertile Klein Karoo valley below. Ancient geological folds are visible in the exposed rock formations.",
-      activities: [
-        {
-          name: "Summit Viewpoint",
-          description:
-            "Stop at the top of the pass for panoramic views across both the Great Karoo and Klein Karoo valleys",
+            "Drive up the legendary Thomas Bain-built Swartberg Pass — one of South Africa's top 10 mountain passes and a UNESCO World Heritage Site. On Day 1 (Fri), explore the pass as a return day trip from Prince Albert, stopping at every viewpoint. On Day 2 (Sat), drive over it properly into Oudtshoorn. The pass climbs to 1,583m through 201 bends with jaw-dropping views of the Great and Klein Karoo on either side.",
           icon: "mountain",
         },
         {
-          name: "Die Hel (Gamkaskloof)",
+          name: "Karoo Astro Tours",
           description:
-            "Optional detour to the remote valley accessible only via a dramatic mountain road",
-          icon: "car",
+            "Prince Albert sits in one of South Africa's darkest dark-sky zones. Karoo Astro Tours runs evening sessions using high-powered telescopes, offering some of the finest stargazing in the southern hemisphere. Book in advance — sessions fill quickly.",
+          icon: "stars",
+        },
+        {
+          name: "Prince Albert Saturday Market",
+          description:
+            "Every Saturday morning, Prince Albert's weekly market draws traders, farmers, and artisans. Locally grown olives, olive oil, preserves, fresh bread, cheese, and handmade crafts — a snapshot of Karoo small-town life at its best.",
+          icon: "shop",
         },
       ],
-      features: [],
-      bookingSource: "",
+      features: [
+        "Self-catering cottages",
+        "Private braai areas",
+        "Plunge pool",
+        "360° mountain & Karoo views",
+        "Air conditioning",
+        "Off-grid capable",
+      ],
+      bookingSource: "Direct booking",
+      bookingUrl: "http://www.wolvekraal.co.za/",
       imageUrl: "/images/activities/swartberg-pass.jpg",
       driveFromPrevious: {
         distanceKm: 200,
         durationHours: 3,
         description:
-          "South from Beaufort West via N12, then onto the Swartberg Pass road",
+          "South through Graaff-Reinet then via the R75 and N9 to Prince Albert — entirely tarred, comfortable drive",
       },
     },
     {
-      id: 5,
+      id: 4,
       slug: "oudtshoorn",
       name: "Oudtshoorn",
       accommodation: "Karoo Lavender",
@@ -283,14 +242,14 @@ export const TRIP_DATA: TripData = {
         "https://www.booking.com/hotel/za/karoo-lavender.en-gb.html",
       imageUrl: "/images/stops/oudtshoorn.jpg",
       driveFromPrevious: {
-        distanceKm: 150,
+        distanceKm: 110,
         durationHours: 1.5,
         description:
-          "Descending the Swartberg Pass into the Klein Karoo valley",
+          "South over the Swartberg Pass (R328) from Prince Albert — the pass itself is the highlight of the morning",
       },
     },
     {
-      id: 6,
+      id: 5,
       slug: "cango-caves",
       name: "Cango Caves",
       accommodation: "Day Activity",
@@ -326,7 +285,7 @@ export const TRIP_DATA: TripData = {
       },
     },
     {
-      id: 7,
+      id: 6,
       slug: "de-rust",
       name: "De Rust",
       accommodation: "Aards Guest Farm",
@@ -383,7 +342,7 @@ export const TRIP_DATA: TripData = {
       },
     },
     {
-      id: 8,
+      id: 7,
       slug: "baviaanskloof",
       name: "Baviaanskloof",
       accommodation: "Uitspan Campsite",
@@ -441,7 +400,7 @@ export const TRIP_DATA: TripData = {
       },
     },
     {
-      id: 9,
+      id: 8,
       slug: "nieu-bethesda",
       name: "Nieu-Bethesda",
       accommodation: "Oude Waenhuis",
@@ -498,7 +457,7 @@ export const TRIP_DATA: TripData = {
       },
     },
     {
-      id: 10,
+      id: 9,
       slug: "philippolis",
       name: "Philippolis",
       accommodation: "Die Groenhuis",
@@ -554,7 +513,7 @@ export const TRIP_DATA: TripData = {
       },
     },
     {
-      id: 11,
+      id: 10,
       slug: "johannesburg-end",
       name: "Johannesburg",
       accommodation: "Home",
