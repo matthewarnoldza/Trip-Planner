@@ -69,6 +69,10 @@ body {
   background: var(--color-sand-500);
 }
 
+/* Hide scrollbar utility */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
 /* Leaflet overrides */
 .leaflet-container {
   font-family: var(--font-sans) !important;

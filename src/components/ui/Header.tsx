@@ -15,6 +15,7 @@ const homeSections = [
 
 const pages = [
   { href: "/", label: "Trip Overview" },
+  { href: "/itinerary", label: "Itinerary" },
   { href: "/food-planner", label: "Food Planner" },
   { href: "/activities", label: "Activities" },
 ];
@@ -132,6 +133,16 @@ export default function Header({ mode = "home" }: HeaderProps) {
                   />
                   {/* Page links */}
                   <Link
+                    href="/itinerary"
+                    className={`px-3 py-2 text-sm font-medium transition-colors ${
+                      scrolled
+                        ? "text-sand-500 hover:text-sand-700"
+                        : "text-white/60 hover:text-white/90"
+                    }`}
+                  >
+                    Itinerary
+                  </Link>
+                  <Link
                     href="/food-planner"
                     className={`px-3 py-2 text-sm font-medium transition-colors ${
                       scrolled
@@ -233,6 +244,13 @@ export default function Header({ mode = "home" }: HeaderProps) {
                     </button>
                   ))}
                   <div className="h-px bg-sand-200 my-2" />
+                  <Link
+                    href="/itinerary"
+                    onClick={() => setMenuOpen(false)}
+                    className="text-left px-4 py-3 rounded-lg text-sm font-medium text-sand-600 hover:bg-sand-100"
+                  >
+                    Detailed Itinerary
+                  </Link>
                   <Link
                     href="/food-planner"
                     onClick={() => setMenuOpen(false)}
