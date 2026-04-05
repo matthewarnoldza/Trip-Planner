@@ -69,7 +69,7 @@ export const days: DayData[] = [
     subtitle: "Travel Day — 520 km · ~5h 30m",
     drive: { depart: "8:00 AM", route: "N1 South through Free State plains", distance: "520 km · ~5h 30m driving" },
     timeline: [
-      { time: "10:30", type: "meal", tag: "Lunch Stop", title: "Kuilfontein Farmstall — Springfontein, N1", description: "Best cappuccinos on the N1, legendary pies (chicken & marsala, lamb & mint, venison & juniper), biltong, rusks and preserves. ~45min stop. Stock up for the road and for Mon night braai.", detail: "Off the N1 near Springfontein · ~280km from JHB" },
+      { time: "11:30", type: "meal", tag: "Lunch Stop", title: "Coffee Talks — Bloemfontein", description: "Reliable coffee and food stop in Bloem — great coffee, fresh lunches, kid-friendly. ~45min break to stretch legs and refuel. Grab snacks and drinks for the road ahead.", detail: "Off the N1 in Bloemfontein · ~400km from JHB" },
       { time: "11:15", type: "drive", tag: "Continue", title: "Back on road south through Free State", description: "~240km remaining. Follow host directions to lodge — do not use GPS for final approach." },
       { time: "14:30", type: "activity", tag: "Arrive", title: "Eco Karoo Mountain Lodge — Knoffelfontein Farm", description: "Check in with hosts Bert & Estee Viljoen (3rd-generation farmers). 100% off-grid, solar powered, aquifer water. 4,200 hectares with kudu, waterbuck, oryx, warthog roaming. Ask Bert about the best route up Joostenberg for tomorrow's sunrise hike." },
       { time: "19:00", type: "meal", tag: "Dinner", title: "Braai at the lodge boma", description: "Buy Karoo lamb + wine on-site from hosts (cash only — bring firelighters). Boma is the prime stargazing spot. First proper Karoo night sky of the trip." },
@@ -86,7 +86,7 @@ export const days: DayData[] = [
       { time: "6:30", type: "activity", tag: "Hike", title: "Joostenberg Mountain Sunrise Hike", description: "Informal scramble up the dolerite-capped Joostenberg mountains directly behind the lodge. No marked trail — get the best line from Bert the night before. Early start to catch sunrise from the top over the Karoo plains. Rocky terrain with loose stone near the summit — closed-toe shoes with ankle support essential. Allow 2–2.5hrs return.", detail: "Ask hosts the night before for best route. April morning temp ~6–8°C — bring a layer." },
       { time: "9:00", type: "meal", tag: "Breakfast", title: "Self-cater at lodge", description: "Fully equipped kitchen in the lodge. Use farmstall provisions from yesterday." },
       { time: "10:30", type: "activity", tag: "Explore", title: "Farm walk — Bergrivier riverbed birding", description: "Birding through the reeds along the riverbed. Look for kudu, waterbuck, oryx and steenbok in the open plains. Pool in the afternoon if warm enough." },
-      { time: "13:00", type: "meal", tag: "Lunch", title: "Self-cater — pies and snacks from Kuilfontein farmstall" },
+      { time: "13:00", type: "meal", tag: "Lunch", title: "Self-cater at lodge" },
       { time: "19:00", type: "meal", tag: "Dinner", title: "Braai — Karoo lamb from lodge (cash, bring wine)", description: "Order the lodge's own Karoo lamb. Best lamb of the trip — lean, flavourful, farm-raised. Boma stargazing after. Zero light pollution, full Milky Way." },
       { type: "note", tag: "Pack for tomorrow", title: "Early departure Wednesday — pack the car tonight. No restaurants on route, carry snacks. Leave 7:00am sharp." },
     ],
@@ -279,7 +279,7 @@ export const days: DayData[] = [
     timeline: [
       { type: "note", tag: "Why 8:00am?", title: "500km is a solid drive. 8am departure means you arrive JHB ~2pm. Leaving later risks afternoon Gauteng traffic." },
       { time: "7:30", type: "meal", tag: "Breakfast", title: "Tea and rusks at Die Groenhuis before departure" },
-      { time: "10:00", type: "meal", tag: "Road Stop", title: "Kuilfontein Farmstall — Springfontein, N1", description: "The same farmstall you stopped at on the way down, 13 days ago. Final Karoo coffee and pie. Stock up on biltong, preserves and rusks to take home.", detail: "~1hr into the return drive · Off the N1 at Springfontein" },
+      { time: "9:30", type: "meal", tag: "Road Stop", title: "Coffee Talks — Bloemfontein", description: "The same Bloem coffee shop you stopped at on the way down, 13 days ago. Final proper coffee and food before the last stretch home to JHB.", detail: "~1h 30m into the return drive · Off the N1 in Bloemfontein" },
       { time: "14:00", type: "drive", tag: "Home", title: "Johannesburg", description: "The Karoo will be waiting for next time." },
     ],
   },

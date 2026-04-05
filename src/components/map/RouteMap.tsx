@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import {
   MapContainer,
   TileLayer,
@@ -48,30 +48,7 @@ export default function RouteMap({
   activeStop = -1,
   onStopClick,
 }: RouteMapProps) {
-  const [visibleSegments, setVisibleSegments] = useState(routeSegments.length);
   const mapRef = useRef<L.Map | null>(null);
-
-  // Animate route segments based on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      const mapEl = document.getElementById("map");
-      if (!mapEl) return;
-
-      const rect = mapEl.getBoundingClientRect();
-      const viewHeight = window.innerHeight;
-      const progress = Math.max(
-        0,
-        Math.min(1, (viewHeight - rect.top) / (viewHeight + rect.height))
-      );
-
-      const segments = Math.ceil(progress * routeSegments.length);
-      setVisibleSegments(Math.max(1, segments));
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const center: [number, number] = [-30.5, 24.5];
 
@@ -96,15 +73,15 @@ export default function RouteMap({
 
       <FitBounds trip={trip} />
 
-      {/* Route polylines */}
-      {routeSegments.slice(0, visibleSegments).map((segment, i) => (
+      {/* Route polylines — full route shown from the start */}
+      {routeSegments.map((segment, i) => (
         <Polyline
           key={i}
           positions={segment}
           pathOptions={{
-            color: i < visibleSegments - 1 ? "#9A3412" : "#F97316",
-            weight: i < visibleSegments - 1 ? 3 : 4,
-            opacity: i < visibleSegments - 1 ? 0.5 : 0.85,
+            color: "#EA580C",
+            weight: 3.5,
+            opacity: 0.8,
             lineCap: "round",
             lineJoin: "round",
           }}
@@ -113,10 +90,6 @@ export default function RouteMap({
 
       {/* Stop markers */}
       {trip.stops.map((stop, index) => {
-        // Only show markers for segments already drawn
-        const segmentIndex = index === 0 ? 0 : index - 1;
-        if (segmentIndex >= visibleSegments && index > 0) return null;
-
         const isActive = activeStop === stop.id;
 
         return (
